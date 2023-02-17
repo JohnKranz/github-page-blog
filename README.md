@@ -1,5 +1,1 @@
-<html>
-  <script>
-    document.open('LICENSE');
-  </script>
-</html>
+My github page test.
