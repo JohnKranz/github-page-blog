@@ -2,14 +2,36 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Test Title</title>
+
+        <title>John Kranz</title>
+
+        <link href="css/bootstrap.css" rel="stylesheet">
     </head>
 
     <body>
-        <h6>My Website</h6>
-        <p>Welcome to my website</p>
 
-        <a href="second-page.html">To second page.</a>
+        <div class="px-4 py-5 my-5 text-center">
+            <img class="d-block mx-auto mb-4 rounded-pill" src="img/avatar.jpg" alt="" width="128" height="128">
+            <h1 class="display-6 fw-bold">欢迎来到John Kranz的个人博客</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">我没啥好说的。。。</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button type="button" class="btn btn-primary btn-lg px-4 gap-3" id="exit">拜拜</button>
+<!--                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>-->
+                </div>
+            </div>
+        </div>
+
+        <script src="js/bootstrap.js"></script>
+
+<!--        <script src="js/bootstrap.js"></script>-->
+
+        <script>
+            let exitBt = document.getElementById("exit");
+            exitBt.onclick = function () {
+                window.close();
+            }
+        </script>
 
     </body>
 </html>
