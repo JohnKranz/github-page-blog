@@ -3,7 +3,7 @@ function drawScene(gl, programInfo, buffers, renderTexture) {
     gl.clear(gl.COLOR_BUFFER_BIT);
 
     const projectionMatrix = mat4.create();
-    mat4.ortho(projectionMatrix,0,320,172,0,0,100);
+    mat4.ortho(projectionMatrix,0,320,168,0,0,100);
 
     setPositionAttribute(gl, buffers, programInfo);
     setTexCoordsAttribute(gl, buffers, programInfo);

@@ -1,75 +1,4 @@
-
-main();
-
-function loadShader(gl, type, source) {
-    const shader = gl.createShader(type);
-
-    gl.shaderSource(shader, source);
-    gl.compileShader(shader);
-
-    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-        alert(
-            `An error occurred compiling the shaders: ${gl.getShaderInfoLog(shader)}`,
-        );
-        gl.deleteShader(shader);
-        return null;
-    }
-
-    return shader;
-}
-
-function initShaderProgram(gl, vsSource, fsSource) {
-    const vertexShader = loadShader(gl, gl.VERTEX_SHADER, vsSource);
-    const fragmentShader = loadShader(gl, gl.FRAGMENT_SHADER, fsSource);
-
-    // Create the shader program
-
-    const shaderProgram = gl.createProgram();
-    gl.attachShader(shaderProgram, vertexShader);
-    gl.attachShader(shaderProgram, fragmentShader);
-    gl.linkProgram(shaderProgram);
-
-    // If creating the shader program failed, alert
-
-    if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
-        alert(
-            `Unable to initialize the shader program: ${gl.getProgramInfoLog(
-                shaderProgram,
-            )}`,
-        );
-        return null;
-    }
-
-    return shaderProgram;
-}
-
-import {initBackgroundBuffers} from "./buffer-background.js";
-import {drawScene} from "./draw-bg.js";
-import {initDreamBlockBuffers} from "./buffer-dreamblock.js";
-import {drawDreamBlock} from "./draw-dreamblock.js";
-
-function main() {
-    const canvas = document.querySelector("#glCanvas");
-    // canvas.width = window.innerWidth;
-    // canvas.height = window.innerHeight;
-    canvas.width = document.body.clientWidth;
-    // canvas.height = document.body.clientHeight;
-    canvas.height = 1160;
-    // canvas.height = window.innerHeight;
-
-    // Initialize the GL context
-    const gl = canvas.getContext("webgl");
-
-    // Only continue if WebGL is available and working
-    if (gl === null) {
-        alert(
-            "Unable to initialize WebGL. Your browser or machine may not support it.",
-        );
-        return;
-    }
-
-
-    const vertBackground = `
+const vertBackground = `
 attribute vec4 a_position;
 attribute vec2 a_texCoords;
 
@@ -83,7 +12,7 @@ void main() {
 }
     `;
 
-    const fragBackground = `
+const fragBackground = `
 precision mediump float;
 
 varying vec2 v_texCoords;
@@ -94,7 +23,7 @@ void main(){
 }
     `
 
-    const vertDreamBlock = `
+const vertDreamBlock = `
 attribute vec4 a_position;
 
 uniform mat4 u_projTrans;
@@ -104,7 +33,7 @@ void main() {
 }
     `;
 
-    const fragDreamBlock = `
+const fragDreamBlock = `
 precision mediump float;
 
 uniform vec2 u_mouse;
@@ -181,7 +110,7 @@ vec4 blink(vec2 p){
             return l;
         }
     }
-    return vec4(0.);
+    return vec4(0.,0.,0.,1.);
 }
 
 void main()
@@ -194,6 +123,82 @@ void main()
 }
     `;
 
+
+
+
+main();
+
+function loadShader(gl, type, source) {
+    const shader = gl.createShader(type);
+
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        alert(
+            `An error occurred compiling the shaders: ${gl.getShaderInfoLog(shader)}`,
+        );
+        gl.deleteShader(shader);
+        return null;
+    }
+
+    return shader;
+}
+
+function initShaderProgram(gl, vsSource, fsSource) {
+    const vertexShader = loadShader(gl, gl.VERTEX_SHADER, vsSource);
+    const fragmentShader = loadShader(gl, gl.FRAGMENT_SHADER, fsSource);
+
+    // Create the shader program
+
+    const shaderProgram = gl.createProgram();
+    gl.attachShader(shaderProgram, vertexShader);
+    gl.attachShader(shaderProgram, fragmentShader);
+    gl.linkProgram(shaderProgram);
+
+    // If creating the shader program failed, alert
+
+    if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
+        alert(
+            `Unable to initialize the shader program: ${gl.getProgramInfoLog(
+                shaderProgram,
+            )}`,
+        );
+        return null;
+    }
+
+    return shaderProgram;
+}
+
+import {initBackgroundBuffers} from "./buffer-background.js";
+import {drawScene} from "./draw-bg.js";
+import {initDreamBlockBuffers} from "./buffer-dreamblock.js";
+import {drawDreamBlock} from "./draw-dreamblock.js";
+
+function main() {
+    const canvas = document.querySelector("#glCanvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    // canvas.width = document.body.clientWidth;
+    // canvas.height = document.body.clientHeight;
+    // canvas.height = 1160;
+    // canvas.height = window.innerHeight;
+
+    // Initialize the GL context
+    const gl = canvas.getContext("webgl");
+
+    // Only continue if WebGL is available and working
+    if (gl === null) {
+        alert(
+            "Unable to initialize WebGL. Your browser or machine may not support it.",
+        );
+        return;
+    }
+
+    /*const bufferResolution = {
+        width: ,
+        height: ,
+    }*/
 
     const shaderBackground = initShaderProgram(gl, vertBackground, fragBackground);
     const shaderBackgroundInfo = {
@@ -238,7 +243,8 @@ void main()
 let xScroll = 0.0;
 let yScroll = 0.0;
 function render(gl, fbo, renderTexture, shaderDreamBlockInfo, shaderBackgroundInfo, time) {
-    yScroll += 8.0;
+    // yScroll += 8.0;
+    yScroll -= 8.0;
 
     gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
     gl.framebufferTexture2D(

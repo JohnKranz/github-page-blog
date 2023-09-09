@@ -6,7 +6,6 @@
 
     <title>John Kranz</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
     <script src="js/bootstrap.js"></script>
 
     <script
@@ -17,13 +16,14 @@
     <script src="js/bg-webgl.js" type="module"></script>
 
 </head>
+
 <!-- style="background: url(image/background_main.jpg) no-repeat; background-size: 100% auto;"-->
 <body class="mb-3">
 <!-- bd-masthead mb-3-->
 
 
 <div id="main_content" class="px-4 py-5 my-5 text-center">
-    <canvas id="glCanvas" style="position: fixed; top:0; left:0"></canvas>
+    <canvas id="glCanvas" style="position: fixed; top:0; left:0; z-index: -1;"></canvas>
 
     <img class="d-block mx-auto mb-4 rounded-pill" src="img/avatar.jpg" alt="" width="128" height="128">
 
