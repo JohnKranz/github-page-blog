@@ -2,20 +2,65 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
   <title>John Kranz</title>
-  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
   <script src="js/bootstrap.js"></script>
  </head>
- <body>
-  <div id="main_content" class="px-4 py-5 my-5 text-center"><img class="d-block mx-auto mb-4 rounded-pill" src="img/avatar.jpg" alt="" width="128" height="128">
-   <h1 class="display-6 fw-bold">这里是John Kranz的个人博客。</h1>
-   <div class="col-lg-6 mx-auto">
+<!-- style="background: url(image/background_main.jpg) no-repeat; background-size: 100% auto;"-->
+ <body class="bd-masthead mb-3">
+<!-- bd-masthead mb-3-->
+  <div id="main_content"  class="px-4 py-5 my-5 text-center">
+
+   <!--<img class="d-block mx-auto mb-4 rounded-pill" src="img/avatar.jpg" alt="" width="128" height="128">
+
+   <h6 class="display-6 fw-bold">这里是John Kranz的个人博客。</h6>
+
+   <div class="col-lg-6 mx-auto my-5">
+
     <p class="lead mb-4">没其他话说了。。。</p>
-    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"><button type="button" class="btn btn-primary btn-lg px-4 gap-3" id="exit">拜拜</button>
+
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+
+     <button type="button" class="btn btn-primary btn-lg px-4 gap-3" id="exit">拜拜</button>
+
     </div>
+
+   </div>-->
+
+
+   <div style="text-align: start;" class="container mx-auto shadow p-3 mb-5 bg-white rounded">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+     <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
+     </li>
+     <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
+     </li>
+     <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
+     </li>
+     <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false">Disabled</button>
+     </li>
+    </ul>
+
+    <div class="container tab-content" id="pills-tabContent">
+     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">A</div>
+     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">B</div>
+     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">C</div>
+     <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab" tabindex="0">D</div>
+    </div>
+
    </div>
-   <div style="text-align: start; width: 60%; margin-top: 50px" class="mx-auto shadow p-3 mb-5 bg-white rounded">
+
+
+
+   <div style="text-align: start;" class="container mx-auto shadow p-3 mb-5 bg-white rounded">
     <p>测试推送消息</p>
+    <p>一名热爱编程，应用程序开发，游戏开发的</p>
    </div>
   </div>
   <script>
