@@ -14,7 +14,9 @@ void main() {
 
 const fragBackground = `
 // precision mediump float;
+#ifdef GL_ES
 precision highp float;
+#endif
 
 varying vec2 v_texCoords;
 uniform sampler2D u_texture;
@@ -35,7 +37,9 @@ void main() {
     `;
 
 const fragDreamBlock = `
-precision mediump float;
+#ifdef GL_ES
+precision highp float;
+#endif
 
 uniform vec2 u_mouse;
 uniform vec2 u_resolution;
