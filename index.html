@@ -27,21 +27,23 @@
 
     <img class="d-block mx-auto mb-4 rounded-pill" src="img/avatar.jpg" alt="" width="128" height="128">
 
-    <h6 class="display-6 fw-bold">这里是John Kranz的个人博客。</h6>
+    <h6 class="display-6 fw-bold">这里是John Kranz的个人主页。</h6>
 
     <div class="col-lg-6 mx-auto my-5">
 
-        <p class="lead mb-4">没其他话说了。。。</p>
+        <p class="lead mb-4">暂时没确定要写什么的页面。。</p>
 
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
 
-            <button type="button" class="btn btn-primary btn-lg px-4 gap-3" id="exit">拜拜</button>
+            <button type="button" class="btn btn-primary btn-lg px-4 gap-3" id="download">下载ShaderToy</button>
+
+<!--            <button type="button" class="btn btn-primary btn-lg px-4 gap-3" id="exit">拜拜</button>-->
 
         </div>
 
     </div>
 
-    <div style="text-align: start;" class="container mx-auto shadow p-3 mb-5 bg-white rounded">
+    <!--<div style="text-align: start;" class="container mx-auto shadow p-3 mb-5 bg-white rounded">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
@@ -80,19 +82,23 @@
             </div>
         </div>
 
-    </div>
+    </div>-->
 
 
-    <div style="text-align: start;" class="container mx-auto shadow p-3 mb-5 bg-white rounded">
+    <!--<div style="text-align: start;" class="container mx-auto shadow p-3 mb-5 bg-white rounded">
         <p>测试推送消息</p>
-        <p>一名热爱编程，应用程序开发，游戏开发的</p>
-    </div>
+    </div>-->
 </div>
 <script>
-    let exitBt = document.getElementById("exit");
+    let downloadBt = document.getElementById("download");
+    downloadBt.onclick = function () {
+        window.open("assets/shadertoy.apk")
+    }
+
+    /*let exitBt = document.getElementById("exit");
     exitBt.onclick = function () {
         window.close();
-    }
+    }*/
 </script>
 </body>
 </html>

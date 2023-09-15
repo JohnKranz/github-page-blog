@@ -13,7 +13,8 @@ void main() {
     `;
 
 const fragBackground = `
-precision mediump float;
+// precision mediump float;
+precision highp float;
 
 varying vec2 v_texCoords;
 uniform sampler2D u_texture;
@@ -242,9 +243,15 @@ function main() {
 
 let xScroll = 0.0;
 let yScroll = 0.0;
+let yVel = 0.0;
+let yAcl = 0.8;
 function render(gl, fbo, renderTexture, shaderDreamBlockInfo, shaderBackgroundInfo, time) {
-    // yScroll += 8.0;
-    yScroll -= 8.0;
+    // yScroll -= 8.0;
+    yVel += yAcl;
+    if(Math.abs(yVel) > 60.0){
+        yAcl = -yAcl;
+    }
+    yScroll += yVel;
 
     gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
     gl.framebufferTexture2D(
